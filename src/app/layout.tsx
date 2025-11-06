@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { StackProvider, StackTheme } from "@stackframe/stack";
+import { stackClientApp } from "../stack/client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
@@ -23,7 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      ><StackProvider app={stackClientApp}><StackTheme>
         <div className="navbar bg-base-100 shadow-sm">
           <div className="flex-1">
             <a className="btn btn-ghost text-xl">ForkLore</a>
@@ -49,10 +51,7 @@ export default function RootLayout({ children }) {
                   />
                 </div>
               </div>
-              <ul
-                tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-              >
+              <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow border border-gray-700">
                 <li>
                   <Link href="/profile">Profile</Link>
                 </li>
@@ -66,14 +65,22 @@ export default function RootLayout({ children }) {
                   <Link href="/settings">Settings</Link>
                 </li>
                 <li>
-                  <Link href="/logout">Logout</Link>
+                  <Link href="/handler/sign-out">Logout</Link>
                 </li>
               </ul>
             </div>
           </div>
         </div>
         {children}
-      </body>
+        <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
+          <aside>
+            <p>
+              Copyright © {new Date().getFullYear()} - All right reserved by
+              ForkLore Ltd
+            </p>
+          </aside>
+        </footer>
+      </StackTheme></StackProvider></body>
     </html>
   );
 }
