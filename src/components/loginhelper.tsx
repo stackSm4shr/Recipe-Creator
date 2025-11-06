@@ -4,11 +4,9 @@ import Link from "next/link";
 
 export default function LoginHelper() {
   const user = useUser();
-
   if (!user) {
     return (
       <>
-        {" "}
         <li>
           <Link href="/signup">Sign Up</Link>
         </li>
@@ -21,7 +19,6 @@ export default function LoginHelper() {
 
   return (
     <>
-      {" "}
       <li>
         <Link href="/settings">Settings</Link>
       </li>

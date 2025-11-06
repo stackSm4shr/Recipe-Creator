@@ -6,7 +6,7 @@ import "./globals.css";
 import Link from "next/link";
 import LoginHelper from "@/components/loginhelper";
 import { Suspense } from "react";
-import Loading from "./loading";
+import UserImage from "@/components/userimage";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,14 +50,21 @@ export default function RootLayout({ children }) {
                     className="btn btn-ghost btn-circle avatar"
                   >
                     <div className="w-10 rounded-full">
-                      <img
-                        alt="Tailwind CSS Navbar component"
-                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                      />
+                      <Suspense
+                        fallback={
+                          <span className="loading loading-spinner loading-xl self-center"></span>
+                        }
+                      >
+                        <UserImage />
+                      </Suspense>
                     </div>
                   </div>
                   <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow border border-gray-700">
-                    <Suspense fallback={<Loading />}>
+                    <Suspense
+                      fallback={
+                        <span className="loading loading-spinner loading-xl self-center"></span>
+                      }
+                    >
                       <LoginHelper />
                     </Suspense>
                   </ul>
