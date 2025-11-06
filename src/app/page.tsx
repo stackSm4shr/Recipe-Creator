@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center">
@@ -17,7 +19,7 @@ export default function Home() {
             <p className="mb-5">
               ForkLore helps you craft, organize, and preserve the flavors and stories that make your kitchen unique.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-primary"><Link href="/signup">Get Started</Link></button>
           </div>
         </div>
       </div>
