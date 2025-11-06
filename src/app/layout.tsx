@@ -7,6 +7,7 @@ import Link from "next/link";
 import LoginHelper from "@/components/loginhelper";
 import { Suspense } from "react";
 import UserImage from "@/components/userimage";
+import { PropsWithChildren } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   description: "Made with ❤️ and 🧠",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body
@@ -31,7 +32,7 @@ export default function RootLayout({ children }) {
       >
         <StackProvider app={stackClientApp}>
           <StackTheme>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar bg-base-300 shadow-sm">
               <div className="flex-1">
                 <a className="btn btn-ghost text-xl">ForkLore</a>
               </div>
