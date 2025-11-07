@@ -2,7 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["content.stack-auth.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "content.stack-auth.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
 };
 
