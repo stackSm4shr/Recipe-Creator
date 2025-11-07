@@ -27,13 +27,22 @@ export async function Navbar() {
             className="btn btn-ghost btn-circle avatar"
           >
             {userProfile ? (
-              <Image
-                src={userProfile?.raw_json.profile_image_url}
-                alt="User avatar"
-                width={32}
-                height={32}
-                className="w-10 rounded-full"
-              />
+              userProfile.raw_json.profile_image_url ? (
+                <Image
+                  alt="User avatar"
+                  width={32}
+                  height={32}
+                  className="w-10 rounded-full"
+                  src={userProfile.raw_json.profile_image_url}
+                />
+              ) : (
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Placeholder avatar"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                </div>
+              )
             ) : (
               <div className="w-10 rounded-full">
                 <img
