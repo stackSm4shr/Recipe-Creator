@@ -1,5 +1,5 @@
 import { getUserDetails } from "@/app/actions";
-import { stackServerApp } from "@/stack";
+import { stackServerApp } from "@/stack/server";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -43,9 +43,7 @@ export async function Navbar() {
               </div>
             )}
           </div>
-          <ul
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
+          <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
             {userProfile ? (
               <li>
                 <a href={app.accountSettings}>Settings</a>
