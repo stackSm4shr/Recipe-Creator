@@ -17,9 +17,12 @@ export default function Home() {
               Your Recipes. Your Legacy.
             </h1>
             <p className="mb-5">
-              ForkLore helps you craft, organize, and preserve the flavors and stories that make your kitchen unique.
+              ForkLore helps you craft, organize, and preserve the flavors and
+              stories that make your kitchen unique.
             </p>
-            <button className="btn btn-primary"><Link href="/signup">Get Started</Link></button>
+            <button className="btn btn-primary">
+              <Link href="/handler/sign-up">Get Started</Link>
+            </button>
           </div>
         </div>
       </div>
