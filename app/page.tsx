@@ -21,7 +21,7 @@ export default function Home() {
               stories that make your kitchen unique.
             </p>
             <button className="btn btn-primary">
-              <Link href="/handler/sign-up">Get Started</Link>
+              <Link href="/handler/sign-up">Stir the Lore</Link>
             </button>
           </div>
         </div>
