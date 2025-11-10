@@ -8,18 +8,34 @@ export async function Navbar() {
   const app = stackServerApp.urls;
   const userProfile = await getUserDetails(user?.id);
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-300 shadow-sm">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">Forklore</a>
+        <a className="btn btn-ghost text-xl" href="/">
+          Forklore
+        </a>
       </div>
       <div className="flex gap-2">
         <Link href="/" className="self-center">
           Home
         </Link>
         <div className="divider divider-horizontal divider-primary h-6 self-center"></div>
-        <Link href="/recipe" className="self-center pe-5">
-          Recipe
-        </Link>
+        {!userProfile ? (
+          <Link href="/recipe" className="self-center pe-5">
+            Recipes
+          </Link>
+        ) : (
+          <Link href="/recipe" className="self-center">
+            Recipes
+          </Link>
+        )}
+        {userProfile ? (
+          <>
+            <div className="divider divider-horizontal divider-primary h-6 self-center"></div>
+            <Link href="/createrecipe" className="self-center pe-5">
+              Create Recipe
+            </Link>
+          </>
+        ) : null}
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}

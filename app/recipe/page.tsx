@@ -1,95 +1,40 @@
-export default function Recipe() {
+import { neon } from "@neondatabase/serverless";
+import Button from "../button";
+
+export default async function Recipe() {
+  const sql = neon(process.env.DATABASE_URL!);
+  const recipes = await sql`SELECT * FROM recipes`;
   return (
-    <div className="flex flex-wrap gap-6 justify-center p-5">
-      <div className="card bg-base-200 w-96 shadow-sm ">
-        <div className="card-body">
-          <h2 className="card-title">Card Title</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
+    <div className="flex flex-col items-center justify-center">
+      <div
+        className="hero min-h-screen"
+        style={{
+          backgroundImage:
+            "url(https://cdn.pixabay.com/photo/2020/05/10/14/25/fresh-pasta-5154229_1280.jpg)",
+        }}
+      >
+        <div className="hero-overlay"></div>
+        <div className="flex flex-wrap gap-6 justify-center py-5">
+          {recipes.map((recipe) => (
+            <div key={recipe.id} className="card glass w-96 shadow-sm">
+              <figure className="px-10 pt-10">
+                <img
+                  src={
+                    recipe.image ||
+                    "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                  }
+                  alt={recipe.title}
+                  className="rounded-xl"
+                />
+              </figure>
+              <div className="card-body items-center text-center">
+                <h2 className="card-title">{recipe.title}</h2>
+                <p>{recipe.description}</p>
+              </div>
+              <Button id={recipe.id} />
+            </div>
+          ))}
         </div>
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-      </div>
-      <div className="card bg-base-200 w-96 shadow-sm ">
-        <div className="card-body">
-          <h2 className="card-title">Card Title</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
-        </div>
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-      </div>
-      <div className="card bg-base-200 w-96 shadow-sm ">
-        <div className="card-body">
-          <h2 className="card-title">Card Title</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
-        </div>
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-      </div>
-      <div className="card bg-base-200 w-96 shadow-sm ">
-        <div className="card-body">
-          <h2 className="card-title">Card Title</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
-        </div>
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-      </div>
-      <div className="card bg-base-200 w-96 shadow-sm ">
-        <div className="card-body">
-          <h2 className="card-title">Card Title</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
-        </div>
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-      </div>
-      <div className="card bg-base-200 w-96 shadow-sm ">
-        <div className="card-body">
-          <h2 className="card-title">Card Title</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
-        </div>
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
       </div>
     </div>
   );
