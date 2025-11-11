@@ -30,7 +30,7 @@ export default async function RecipePage({
             <figure className="">
               <img
                 src={
-                  item.image ||
+                  item.image_url ||
                   "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                 }
                 alt={item.title}
