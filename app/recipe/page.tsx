@@ -20,7 +20,7 @@ export default async function Recipe() {
               <figure className="px-10 pt-10">
                 <img
                   src={
-                    recipe.image ||
+                    recipe.image_url ||
                     "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                   }
                   alt={recipe.title}
