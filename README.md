@@ -1,6 +1,6 @@
 # Recipe-Creator
 
-A Recipe-Creator Website build with NextJS, AppRouter Mode, uses SSR for most Parts. [`Neon`](https://neon.com/) is used for DB and Auth, [`Pinata`](https://pinata.cloud) for Image Storage.
+A Recipe-Creator Website build with NextJS, AppRouter Mode, uses SSR for most Parts. [`Neon`](https://neon.com/) is used for DB and Auth, [`Pinata`](https://pinata.cloud) for Image Storage. Fully commented Code**.
 
 ## Getting Started
 
@@ -30,3 +30,5 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+---
+** code commented by AI
